@@ -578,7 +578,11 @@
           <a href="#" onclick="window.print(); return false;" class="cta-button secondary">📄 Télécharger le CV (PDF)</a>
         </div>
         <div style="height:20px"></div>
-        <form class="contact-form" id="contact-form">
+          <form
+          class="contact-form"
+          action="https://formspree.io/f/xanpgova"  <!-- ⬅︎ remplace par TON_ENDPOINT -->
+          method="POST"
+        >
           <div class="contact-row">
             <div>
               <label for="name">Nom</label>
@@ -597,6 +601,16 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Bonjour Mathis, …" required></textarea>
           </div>
+        
+          <!-- Honeypot anti-spam (si un bot le remplit, Formspree l’ignore) -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        
+          <!-- (Optionnel) Sujet de l'email que tu recevras -->
+          <input type="hidden" name="_subject" value="Nouveau message depuis le site" />
+        
+          <!-- (Optionnel) URL de remerciement perso après envoi -->
+          <!-- <input type="hidden" name="_next" value="https://mathisveillard.github.io/Mathis-Veillard/merci.html" /> -->
+        
           <button type="submit" class="cta-button" style="border:none; cursor:pointer;">📨 Envoyer le message</button>
         </form>
       </div>

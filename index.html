@@ -578,11 +578,11 @@
           <a href="#" onclick="window.print(); return false;" class="cta-button secondary">📄 Télécharger le CV (PDF)</a>
         </div>
         <div style="height:20px"></div>
-          <form
+        <form
           class="contact-form"
           action="https://formspree.io/xanpgova"
           method="POST"
-          >
+        >
           <div class="contact-row">
             <div>
               <label for="name">Nom</label>
@@ -590,25 +590,22 @@
             </div>
             <div>
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="votre@email.com" required />
+              <input id="email" name="_replyto" type="email" placeholder="votre@email.com" required />
             </div>
           </div>
           <div>
             <label for="subject">Sujet</label>
-            <input id="subject" name="subject" type="text" placeholder="Objet du message" />
+            <input id="subject" name="_subject" type="text" placeholder="Objet du message" />
           </div>
           <div>
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Bonjour Mathis, …" required></textarea>
           </div>
         
-          <!-- Honeypot anti-spam (si un bot le remplit, Formspree l’ignore) -->
+          <!-- Champ anti-spam invisible -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
         
-          <!-- (Optionnel) Sujet de l'email que tu recevras -->
-          <input type="hidden" name="_subject" value="Nouveau message depuis le site" />
-        
-          <!-- (Optionnel) URL de remerciement perso après envoi -->
+          <!-- (Optionnel) Redirection après envoi -->
           <!-- <input type="hidden" name="_next" value="https://mathisveillard.github.io/Mathis-Veillard/merci.html" /> -->
         
           <button type="submit" class="cta-button" style="border:none; cursor:pointer;">📨 Envoyer le message</button>

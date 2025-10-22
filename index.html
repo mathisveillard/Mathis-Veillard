@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mathis Veillard - Portfolio</title>
+  <meta name="description" content="Monteur & VFX 2D. Docu, fiction courte, clip. Avid, Resolve, After Effects. Basé en France. Disponible freelance." />
+  <meta property="og:title" content="Mathis Veillard — Monteur & VFX 2D" />
+  <meta property="og:description" content="Du dérush au finishing. Expérimenté TV/plateformes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+      color: #2c2c2c; line-height: 1.7; min-height: 100vh;
+      padding: 40px 20px 60px 20px; opacity: 0; animation: fadeIn 0.8s ease-out forwards;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px);} to { opacity: 1; transform: translateX(0);} }
+    @keyframes slideInRight { from { opacity: 0; transform: translateX(50px);} to { opacity: 1; transform: translateX(0);} }
+    @keyframes slideInUp { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: translateY(0);} }
+
+    .container { max-width: 1200px; margin: 0 auto; background: #fff; display: grid; grid-template-columns: 350px 1fr; box-shadow: 0 20px 80px rgba(0,0,0,.5); border-radius: 8px; overflow: visible; min-height: auto; }
+    .sidebar { background: linear-gradient(165deg, #1a1a1a 0%, #2d2d2d 100%); color: #fff; padding: 0; position: relative; }
+    .photo-section { width: 100%; height: 350px; background: #0a0a0a; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 3px solid #c9a961; }
+    .photo-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%); display: flex; align-items: center; justify-content: center; }
+    .photo-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+    .sidebar-content { padding: 40px 35px; }
+    .main-content { padding: 50px 50px; }
+
+    .header { margin-bottom: 30px; }
+    .name { font-family: "Cormorant Garamond", serif; font-size: 38px; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; line-height: 1.2; }
+    .title { font-size: 12px; font-weight: 300; color: #c9a961; line-height: 1.7; letter-spacing: .5px; }
+
+    .contact-info { margin-bottom: 35px; padding-top: 25px; border-top: 1px solid rgba(201,169,97,.3); }
+    .contact-item { display: flex; align-items: flex-start; margin-bottom: 14px; font-size: 11.5px; color: #e8e8e8; font-weight: 300; }
+    .contact-icon { width: 16px; height: 16px; margin-right: 12px; opacity: .8; margin-top: 2px; flex-shrink: 0; }
+
+    .section { margin-bottom: 35px; }
+    .section-title { font-family: "Cormorant Garamond", serif; font-size: 15px; font-weight: 600; letter-spacing: 1.2px; margin-bottom: 18px; color: #c9a961; padding-bottom: 8px; border-bottom: 1px solid rgba(201,169,97,.3); }
+    .main-content .section-title { font-size: 24px; color: #1a1a1a; border-bottom: 2px solid #c9a961; padding-bottom: 10px; margin-bottom: 25px; }
+
+    .skills-grid { display: grid; gap: 20px; }
+    .skill-category { margin-bottom: 8px; }
+    .skill-category-title { font-size: 10.5px; font-weight: 600; color: #c9a961; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .skill-items { font-size: 11px; color: #d8d8d8; line-height: 1.8; font-weight: 300; }
+
+    .collapsible { background: #f8f8f8; border: none; width: 100%; text-align: left; padding: 18px 20px; cursor: pointer; font-family: "Cormorant Garamond", serif; font-size: 20px; font-weight: 600; color: #1a1a1a; border-left: 4px solid #c9a961; margin-bottom: 15px; transition: all .3s ease; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden; }
+    .collapsible::before { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(201,169,97,.1), transparent); transition: left .5s ease; }
+    .collapsible:hover::before { left: 100%; }
+    .collapsible:hover { background: #f0f0f0; border-left-width: 6px; transform: translateX(5px); box-shadow: 0 4px 15px rgba(0,0,0,.1); }
+    .collapsible:active { transform: translateX(3px) scale(.99); }
+    .collapsible.active { background: #e8e8e8; }
+    .collapsible::after { content: "+"; font-size: 28px; color: #c9a961; font-weight: 300; }
+    .collapsible.active::after { content: "−"; }
+
+    .sidebar-collapsible { background: transparent; color: #c9a961; font-family: "Cormorant Garamond", serif; font-size: 15px; font-weight: 600; letter-spacing: 1.2px; padding: 12px 0; border: none; border-left: none; border-bottom: 1px solid rgba(201,169,97,.3); margin-bottom: 0; position: relative; overflow: hidden; }
+    .sidebar-collapsible::before { content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #c9a961; transition: width .4s ease; }
+    .sidebar-collapsible:hover::before { width: 100%; }
+    .sidebar-collapsible:hover { background: transparent; border-left: none; color: #d4b577; transform: translateX(3px); }
+    .sidebar-collapsible:active { transform: translateX(2px) scale(.98); }
+    .sidebar-collapsible.active { background: transparent; border-left: none; color: #d4b577; }
+    .sidebar-collapsible::after { color: #c9a961; font-size: 20px; }
+
+    .sidebar-collapsible-content { padding: 0; }
+    .sidebar-collapsible-content.active { padding: 20px 0 40px 0; margin-bottom: 30px; }
+
+    .collapsible-content { max-height: 0; overflow: hidden; transition: max-height .3s ease-out; padding: 0 20px; }
+    .collapsible-content.active { padding: 20px; margin-bottom: 15px; }
+
+    .experience-item, .education-item { margin-bottom: 28px; position: relative; padding-left: 0; }
+    .experience-year, .education-year { font-family: "Cormorant Garamond", serif; font-size: 13px; font-weight: 600; color: #c9a961; margin-bottom: 6px; letter-spacing: .5px; }
+    .experience-title, .education-title { font-size: 14.5px; font-weight: 500; color: #1a1a1a; margin-bottom: 8px; line-height: 1.5; transition: color .3s ease; }
+    .experience-title a, .education-title a { color: inherit; text-decoration: none; position: relative; }
+    .experience-title a::after { content: " 🔗"; font-size: 11px; opacity: 0; transition: opacity .3s ease; }
+    .experience-title a:hover { color: #c9a961; }
+    .experience-title a:hover::after { opacity: 1; }
+
+    .project-card { background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%); border-left: 4px solid #c9a961; padding: 20px; margin-bottom: 20px; border-radius: 6px; transition: all .3s ease; opacity: 0; animation: slideInUp .6s ease-out forwards; }
+    .project-card:nth-child(1) { animation-delay: 1s; }
+    .project-card:nth-child(2) { animation-delay: 1.1s; }
+    .project-card:nth-child(3) { animation-delay: 1.2s; }
+    .project-card:nth-child(4) { animation-delay: 1.3s; }
+    .project-card:hover { transform: translateX(8px); box-shadow: 0 8px 25px rgba(0,0,0,.1); border-left-width: 6px; }
+
+    .project-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
+    .project-title { font-family: "Cormorant Garamond", serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+    .project-role { font-size: 12px; color: #c9a961; font-weight: 500; text-transform: uppercase; letter-spacing: .5px; }
+    .project-description { font-size: 12.5px; color: #5a5a5a; line-height: 1.6; font-weight: 300; margin-bottom: 12px; }
+    .project-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #c9a961; text-decoration: none; font-weight: 500; transition: all .3s ease; padding: 6px 12px; border: 1px solid #c9a961; border-radius: 4px; }
+    .project-link:hover { background: #c9a961; color: #fff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(201,169,97,.3); }
+
+    .about-text { font-size: 13.5px; color: #4a4a4a; line-height: 1.8; font-weight: 300; margin-bottom: 20px; font-style: italic; }
+
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #c9a961 0%, rgba(201,169,97,.3) 100%); }
+    .timeline-item { position: relative; margin-bottom: 30px; padding-left: 0; }
+    .timeline-item::before { content: ""; position: absolute; left: -26px; top: 8px; width: 12px; height: 12px; background: #fff; border: 3px solid #c9a961; border-radius: 50%; z-index: 1; transition: all .3s ease; }
+    .timeline-item.highlight::before { background: #c9a961; width: 16px; height: 16px; left: -28px; top: 6px; box-shadow: 0 0 0 4px rgba(201,169,97,.2); }
+    .timeline-item:hover::before { transform: scale(1.3); background: #c9a961; }
+
+    .experience-badge { display: inline-block; background: linear-gradient(135deg, #c9a961 0%, #a07d45 100%); color: #fff; font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 12px; margin-left: 8px; text-transform: uppercase; letter-spacing: .5px; }
+
+    .language-item { margin-bottom: 16px; }
+    .language-name { font-size: 12px; color: #c9a961; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .5px; }
+    .language-level { font-size: 11px; color: #d8d8d8; font-weight: 300; }
+
+    .cta-buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+    .cta-button { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: linear-gradient(135deg, #c9a961 0%, #a07d45 100%); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; border-radius: 6px; transition: all .3s ease; box-shadow: 0 4px 15px rgba(201,169,97,.3); }
+    .cta-button svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .cta-button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(201,169,97,.4); }
+    .cta-button:active { transform: translateY(-1px); }
+    .cta-button.secondary { background: #fff; color: #c9a961; border: 2px solid #c9a961; box-shadow: none; }
+    .cta-button.secondary:hover { background: #c9a961; color: #fff; }
+
+    .awards-item { font-size: 11px; color: #d8d8d8; margin-bottom: 14px; line-height: 1.7; padding-left: 18px; position: relative; font-weight: 300; }
+    .awards-item::before { content: "—"; position: absolute; left: 0; color: #c9a961; font-weight: 400; }
+
+    .interests { font-size: 11px; color: #d8d8d8; line-height: 1.9; font-weight: 300; }
+    .interest-item { margin-bottom: 10px; }
+    .interest-label { font-weight: 500; color: #c9a961; }
+
+    .video-container { margin: 25px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.1); opacity: 0; animation: slideInUp .8s ease-out .8s forwards; }
+    .video-container iframe { width: 100%; height: 400px; border: none; }
+
+    /* ---------- AJOUT : styles "Projets phares" + boutons Voir tout ---------- */
+    .featured-projects { display: grid; gap: 25px; margin: 20px 0 10px; }
+    .featured-card {
+      background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+      border: 2px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 25px;
+      transition: all .3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: linear-gradient(180deg, #c9a961 0%, #a07d45 100%);
+    }
+    .featured-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.12); border-color: #c9a961; }
+    .featured-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px; }
+    .featured-title { font-family: "Cormorant Garamond", serif; font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+    .featured-role { font-size: 12px; color: #c9a961; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .featured-badge { background: linear-gradient(135deg, #c9a961 0%, #a07d45 100%); color: #fff; font-size: 10px; font-weight: 700; padding: 6px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; }
+    .featured-description { font-size: 13px; color: #5a5a5a; line-height: 1.7; margin-bottom: 10px; font-weight: 300; }
+    .featured-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .tool-tag { background: #f5f5f5; color: #5a5a5a; font-size: 10.5px; font-weight: 500; padding: 4px 10px; border-radius: 4px; border: 1px solid #e8e8e8; }
+
+    .view-all-btn { text-align: center; margin: 18px 0 8px; }
+    .view-all-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; background: transparent; color: #c9a961;
+      text-decoration: none; font-size: 13px; font-weight: 600;
+      border: 2px solid #c9a961; border-radius: 6px; transition: all .3s ease;
+    }
+    .view-all-link:hover { background: #c9a961; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,169,97,.3); }
+    /* ---------- FIN AJOUT ---------- */
+
+    /* Formulaire contact */
+    .contact-form { display: grid; gap: 14px; }
+    .contact-row { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+    .contact-form label { font-size: 12px; color: #5a5a5a; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 12px 14px; border: 1px solid #e1e1e1; border-radius: 6px; font-size: 14px; outline: none; transition: border-color .2s ease, box-shadow .2s ease; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: #c9a961; box-shadow: 0 0 0 3px rgba(201,169,97,.15); }
+    .contact-form textarea { min-height: 140px; resize: vertical; }
+    /* ===== Effet "signature" sur le nom ===== */
+.name{
+  position: relative;
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.name::after{ /* soulignement doré qui pousse */
+  content:"";
+  position:absolute;
+  left:0; bottom:-6px;
+  height:3px; width:0;
+  background: linear-gradient(90deg, #c9a961, #a07d45);
+  border-radius:2px;
+  animation: underlineGrow 700ms 400ms ease-out forwards;
+}
+.name .char{
+  display:inline-block;
+  opacity:0;
+  transform: translateY(20px) rotate(2deg);
+  filter: blur(0px);
+  white-space: pre;        /* préserve les espaces */
+  animation: floatUp 600ms ease-out forwards;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
+/* Shimmer discret qui balaie le texte une fois l'entrée finie */
+.name.shine{
+  background: linear-gradient(90deg, #1a1a1a 0%, #1a1a1a 30%, #d9c393 50%, #1a1a1a 70%, #1a1a1a 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: white;
+  animation: shimmer 1000ms 1500ms ease-out both;
+}
+
+/* Reveals au scroll (timeline, cartes, titres) */
+.reveal{
+  opacity:0;
+  transform: translateY(0px);
+  filter: blur(1px);
+  transition: opacity .6s ease, transform .6s ease, filter .6s ease;
+}
+.reveal.in{
+  opacity:1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* keyframes */
+@keyframes floatUp{
+  0%   { opacity:0; transform: translateY(20px) rotate(2deg); filter: blur(3px); }
+  60%  { opacity:1; transform: translateY(-2px) rotate(0);   filter: blur(0); }
+  100% { opacity:1; transform: translateY(0); }
+}
+@keyframes underlineGrow{ from{width:0;} to{width:100%;} }
+@keyframes shimmer{
+  0%   { background-position: -120% 0; }
+  100% { background-position: 220% 0; }
+}
+
+/* petit "pop" au hover (optionnel) */
+.name:hover{ transform: translateY(-1px); transition: transform .2s ease; }
+
+/* Respecte la réduction d’animations si demandée */
+@media (prefers-reduced-motion: reduce){
+  .name .char, .name::after, .name.shine, .reveal{
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .container { box-shadow: none; max-width: 210mm; border-radius: 0; }
+      .sidebar, .photo-section { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+      .collapsible { display: none; }
+      .collapsible-content { max-height: none !important; display: block !important; padding: 0 !important; }
+      .video-container, .contact-form { display: none; }
+    }
+    @media (max-width: 968px) { .container { grid-template-columns: 1fr; } .main-content { max-height: none; } .contact-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="photo-section">
+        <div class="photo-placeholder">
+          <img src="assets/photo-profil.jpg" alt="Mathis Veillard" loading="lazy" width="800" height="800" />
+        </div>
+      </div>
+
+      <div class="sidebar-content">
+        <div class="header">
+          <h1 class="name">Mathis Veillard</h1>
+          <p class="title">Monteur et assistant de post-production<br />VFX Artist 2D<br />Réalisateur (de temps en temps)</p>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>07 62 61 62 57</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>mathisveillard@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4m0-4h.01"></path></svg>
+            <span>Permis de conduire B</span>
+          </div>
+        </div>
+
+        <button class="collapsible sidebar-collapsible">Ce que je fais</button>
+        <div class="collapsible-content sidebar-collapsible-content">
+          <div class="skills-grid">
+            <div class="skill-category"><div class="skill-category-title">Montage</div><div class="skill-items">docu, fiction courte, clip, corporate (derush, structure, rythme, sound temp, sous-titrage léger).
+          </div></div>
+            <div class="skill-category"><div class="skill-category-title">VFX 2D / Compositing</div><div class="skill-items">Rotos, clean plate, set extension simple, écran/texte intégré (AE). Motion design.
+          </div></div>
+            <div class="skill-category"><div class="skill-category-title">Assistance de post-production</div><div class="skill-items">Ingest, confo, exports PAD, QC technique, gestion Nexis/ISIS.</div></div>
+          </div>
+        </div>
+
+        <button class="collapsible sidebar-collapsible">Compétences Techniques</button>
+        <div class="collapsible-content sidebar-collapsible-content">
+          <div class="skills-grid">
+            <div class="skill-category"><div class="skill-category-title">Outils de post-production</div><div class="skill-items">Avid Media Composer<br/>Adobe Premiere Pro<br/>DaVinci Resolve<br/>Final Cut Pro<br/><br/>Adobe After Effects<br/>Adobe Photoshop<br/>Adobe Media Encoder<br/>Adobe Illustrator<br/>Adobe Lightroom<br/><br/>Administration Nexis & ISIS</div></div>
+            <div class="skill-category"><div class="skill-category-title">Intelligence Artificielle</div><div class="skill-items">ChatGPT · Claude AI<br/>Runway · Midjourney<br/>Stable Diffusion</div></div>
+            <div class="skill-category"><div class="skill-category-title">Bureautique</div><div class="skill-items">Suite Office · Suite Google</div></div>
+            <div class="skill-category"><div class="skill-category-title">Autre</div><div class="skill-items">BAFA</div></div>
+          </div>
+        </div>
+        
+        <button class="collapsible sidebar-collapsible">Langues</button>
+        <div class="collapsible-content sidebar-collapsible-content">
+          <div class="language-item"><div class="language-name">Français</div><div class="language-level">Langue maternelle</div></div>
+          <div class="language-item"><div class="language-name">Anglais</div><div class="language-level">Niveau C2 · Courant</div></div>
+          <div class="language-item"><div class="language-name">Allemand</div><div class="language-level">Notions</div></div>
+        </div>
+       
+        <button class="collapsible sidebar-collapsible">Distinctions</button>
+        <div class="collapsible-content sidebar-collapsible-content">
+          <div class="awards-item"><a href="https://nouvelles.univ-rennes2.fr/article/festival-travelling-ca-se-passe-aussi-rennes-2" target="_blank"style="color:#d8d8d8; text-decoration:none;" >Sélection au Festival Travelling de Rennes (2022, 2023) pour "Celui qui ne trahira pas"</a></div>
+          <div class="awards-item">Sélections au Festival du Film de l'Ouest (2010-2014) pour "Korrigans", "Les yeux noirs" et "Sleep Alone"</div>
+          <div class="awards-item"><a href="https://www.ouest-france.fr/bretagne/lheure-des-recompenses-pour-les-jeunes-critiques-1535623" target="_blank" style="color:#d8d8d8; text-decoration:none;">3ème place au Prix Goncourt des Lycéens (2012)</a></div>
+          <div class="awards-item">Prix du meilleur film Leon Blum's Awards (2015) pour "L'homme qui suivait les femmes"</div>
+          <div class="awards-item"><a href="https://kinomada.org/films/sur-le-fil" target="_blank" style="color:#d8d8d8; text-decoration:none;" >Semaine du Cinéma de Lanaudière, Canada. Création du film "Sur le fil"</a></div>
+        </div>
+
+        <button class="collapsible sidebar-collapsible">Centres d'Intérêt</button>
+        <div class="collapsible-content sidebar-collapsible-content">
+          <div class="interests">
+            <div class="interest-item"><span class="interest-label">Arts :</span> Magie, dessin, photographie, cuisine, cinéma</div>
+            <div class="interest-item"><span class="interest-label">Sports :</span> Tennis (12 ans), ski, plongée (Open Water)</div>
+            <div class="interest-item"><span class="interest-label">Musique :</span> Violon (7 ans), piano (autodidacte)</div>
+            <div class="interest-item"><span class="interest-label">Autres :</span> Voyages, lecture, théâtre</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="section">
+        <h2 class="section-title">À propos</h2>
+        <p class="about-text">Monteur et artiste VFX 2D, j’interviens du dérushage au finishing pour des documentaires, fictions courtes et contenus musicaux. Habitué des délais serrés, je sécurise la narrativité, la fluidité technique (Avid, Resolve, After Effects) et la conformité diffusion (TV/plateformes). Je me place comme humble serviteur de la réalisation et de la narration ... <br><br>Et tout cela en rythme et en émotion !</p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Bande Démo</h2>
+        <div class="video-container"><iframe src="https://www.youtube.com/embed/cD3mIMpBRcM" allowfullscreen></iframe></div>
+      </div>
+
+      <!-- ====== PARCOURS PRO ====== -->
+      <button class="collapsible">Parcours Professionnel</button>
+      <div class="collapsible-content">
+        <!-- Projets phares -->
+        <div class="featured-projects" id="featured-projects">
+          <div class="featured-card">
+            <div class="featured-header">
+              <div>
+                <div class="featured-title">Éclaireurs</div>
+                <div class="featured-role">Monteur · Long métrage documentaire</div>
+              </div>
+              <div class="featured-badge">TV5 Monde+</div>
+            </div>
+            <div class="featured-description">Montage complet et motion design du long métrage documentaire réalisé par Arthur Gosset et Hélène Cloître. produit par Séisme. Décliné en mini-série pour TV5 Monde+.</div>
+            <div class="featured-tools">
+              <span class="tool-tag">DaVinci Resolve</span>
+              <span class="tool-tag">After Effects</span>
+              <span class="tool-tag">Documentaire</span>
+            </div>
+          </div>
+
+          <div class="featured-card">
+            <div class="featured-header">
+              <div>
+                <div class="featured-title">Home Glitch Home</div>
+                <div class="featured-role">VFX Artist · Court métrage</div>
+              </div>
+              <div class="featured-badge">Ecce Films</div>
+            </div>
+            <div class="featured-description">7 mois d’effets visuels pour le film de Carlos Franklin (compositing, intégrations, processus experimental).</div>
+            <div class="featured-tools">
+              <span class="tool-tag">After Effects</span>
+              <span class="tool-tag">Compositing</span>
+              <span class="tool-tag">IA</span>
+            </div>
+          </div>
+
+          <div class="featured-card">
+            <div class="featured-header">
+              <div>
+                <div class="featured-title">Ligue 1+</div>
+                <div class="featured-role">Assistant de Post-production</div>
+              </div>
+              <div class="featured-badge">Diffusion nationale</div>
+            </div>
+            <div class="featured-description">Assistance post-prod (ingest, confo, QC, exports broadcast) sous contrat May21.</div>
+            <div class="featured-tools">
+              <span class="tool-tag">Premiere Pro</span>
+              <span class="tool-tag">Nexis</span>
+              <span class="tool-tag">Broadcast</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- bouton bascule -->
+        <div class="view-all-btn">
+          <a href="#" class="view-all-link" id="toggle-full-experience">
+            <span id="toggle-text">Voir tout le parcours professionnel</span>
+            <span id="toggle-icon">▼</span>
+          </a>
+        </div>
+
+        <!-- Timeline complète -->
+        <div id="full-experience" style="display:none; margin-top: 20px;">
+          <div class="timeline">
+            <div class="timeline-item highlight">
+              <div class="experience-year">2025</div>
+              <div class="experience-title">Monteur · Long métrage documentaire "Éclaireurs" <span class="experience-badge">TV5 Monde+</span></div>
+              <div class="experience-description">Réalisé par Arthur Gosset et Hélène Cloître. Décliné en mini série pour TV5 Monde+</div>
+            </div>
+            <div class="timeline-item highlight">
+              <div class="experience-year">2025</div>
+              <div class="experience-title">Assistant de Post-production · Ligue 1+ <span class="experience-badge">Diffusion nationale</span></div>
+              <div class="experience-description">Sous contrat avec May21</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2025</div>
+              <div class="experience-title"><a href="https://www.cinematheque-bretagne.bzh/en-dro-d-ar-filmo%C3%B9-testeni-albert-taque-1359-96-0-0.html" target="_blank"> Réalisateur et monteur · Témoignage d'Albert Taque sur la libération de Rosporden en 1944</a></div>
+              <div class="experience-description">Dans le cadre des archives de la libération pour la Cinémathèque de Bretagne.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2024</div>
+              <div class="experience-title"><a href="https://www.primevideo.com/-/fr/detail/Une-derni%C3%A8re-nuit-de-toi/0TVZRZLMFM4JRMJ2KVB34HZDSP" target="_blank"> Visual Effects Artist · Long métrage "Une dernière nuit de toi"</a><span class="experience-badge">Prime Video</span></div>
+              <div class="experience-description">Réalisé et produit par Theodore Tomasz et diffusé par Prime Video</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2024</div>
+              <div class="experience-title">Monteur · Court-métrage "Le Plus Beau Tableau du Monde"</div>
+              <div class="experience-description">Réalisé par David Simon, produit par Fenêtre sur courts. Encore non diffusé. </div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2024</div>
+              <div class="experience-title"><a href="https://www.instagram.com/p/C_0tyIpIljI/" target="_blank">Visual Effects Artist · Moyen métrage "Ultimatum 3"</a></div>
+              <div class="experience-description">Réalisé par Axel Plantec et David Simon. Parodie de film d'action. Suite d'un projet étudiant. Effets visuels 2D complexes en terme d'intégration.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2024</div>
+              <div class="experience-title"><a href="https://www.youtube.com/watch?v=m6U-2JMAxx8" target="_blank">Co-réalisateur & Monteur · Clip "J'voulais Pas Sortir"</a></div>
+              <div class="experience-description">Pour le rappeur Koza, co-réalisé avec Quentin Vauque</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2024</div>
+              <div class="experience-title">Monteur en Freelance · OPA Média</div>
+              <div class="experience-description">Production de contenus vidéos institutionnels</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2023</div>
+              <div class="experience-title">Fondation d'une Auto-entreprise</div>
+              <div class="experience-description">Spécialisée en post-production audiovisuelle</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2023</div>
+              <div class="experience-title"><a href="https://www.youtube.com/watch?v=ALFCxWLFbSI" target="_blank">Visual Effects Artist · Court-métrage "Connexion"</a></div>
+              <div class="experience-description">Réalisé par Paul Delpech et Gwendal Baudrillart</div>
+            </div>
+            <div class="timeline-item highlight">
+              <div class="experience-year">2022</div>
+              <div class="experience-title"><a href="https://en.unifrance.org/movie/60803/home-glitch-home" target="_blank">VFX Artist · Ecce Films, Paris</a> <span class="experience-badge">7 mois</span></div>
+              <div class="experience-description">Court-métrage "Home Glitch Home"</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2021</div>
+              <div class="experience-title">Monteur · Court-métrage "Aube"</div>
+              <div class="experience-description">Réalisé par Garvan Suignard-Bouliou</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2018 - 2019</div>
+              <div class="experience-title">Monteur · Mallard Productions, Glasgow</div>
+              <div class="experience-description">Expérience internationale en post-production (6 mois)</div>
+            </div>
+            <div class="timeline-item highlight">
+              <div class="experience-year">2017</div>
+              <div class="experience-title"><a href="https://www.youtube.com/watch?v=A425UYQNk3U" target="_blank">Stage de Montage · Téléfilm "La Consolation" de Magalie Richar-Serrano · Paris</a></div>
+              <div class="experience-description">Avec la monteuse Catherine Schwartz. Produit par Image & Compangnie sur le livre du même nom de Flavie Flament. Diffusé par France 3. </div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2017</div>
+              <div class="experience-title">Stage · SAYA Postproduction, Paris</div>
+              <div class="experience-description">Immersion en société de post-production et son aspect purement technique.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="experience-year">2017</div>
+              <div class="experience-title">Stage Monteur News · France 3 Bretagne, Rennes</div>
+              <div class="experience-description">Production télévisuelle en direct</div>
+            </div>
+            <div class="timeline-item highlight">
+              <div class="experience-year">2016</div>
+              <div class="experience-title">Stage de Production · Mandarin Cinéma, Paris <span class="experience-badge">Production</span></div>
+              <div class="experience-description">Avec la productrice Isabelle Grellat. Travail sur des films comme "Cigarettes & Chocolat Chauds" de Sophie Reine, "Patients" de Grand Corps Malade ou encore "Bienvenue au Gondwana" de Mamane. Egalement lecture et séléction de nouveaux scénarios.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== FORMATION ====== -->
+      <button class="collapsible">Formation</button>
+      <div class="collapsible-content" id="formation-content">
+        <!-- Résumé -->
+        <div class="timeline" id="edu-short">
+          <div class="education-item">
+            <div class="education-year">2020 - 2022</div>
+            <div class="education-title">Master Numérique et Médias Interactifs pour le Cinéma</div>
+            <div class="experience-description">Université Rennes 2 · Mention Bien · Note finale de projet : 18/20</div>
+          </div>
+          <div class="education-item">
+            <div class="education-year">2016 - 2018</div>
+            <div class="education-title">BTS Audiovisuel · Montage et Post-production</div>
+            <div class="experience-description">Lycée René Cassin, Biarritz</div>
+          </div>
+        </div>
+
+        <!-- bouton bascule Formation -->
+        <div class="view-all-btn">
+          <a href="#" class="view-all-link" id="toggle-full-education">
+            <span id="toggle-edu-text">Voir tout le parcours académique</span>
+            <span id="toggle-edu-icon">▼</span>
+          </a>
+        </div>
+
+        <!-- Formation complète -->
+        <div id="full-education" style="display:none; margin-top: 20px;">
+          <div class="timeline">
+            <div class="education-item">
+              <div class="education-year">2020 - 2022</div>
+              <div class="education-title">Master Numérique et Médias Interactifs pour le Cinéma</div>
+              <div class="experience-description">Université Rennes 2 · Mention Bien · Note finale de projet : 18/20</div>
+            </div>
+            <div class="education-item">
+              <div class="education-year">2018 - 2020</div>
+              <div class="education-title">Licence Arts du Spectacle · Cinéma</div>
+              <div class="experience-description">Université Rennes 2</div>
+            </div>
+            <div class="education-item">
+              <div class="education-year">2016 - 2018</div>
+              <div class="education-title">BTS Audiovisuel · Montage et Post-production</div>
+              <div class="experience-description">Lycée René Cassin, Biarritz</div>
+            </div>
+            <div class="education-item">
+              <div class="education-year">2015 - 2016</div>
+              <div class="education-title">MANCAV · Mise à Niveau Cinéma Audiovisuel</div>
+              <div class="experience-description">Lycée Pré-de-Cordy, Sarlat</div>
+            </div>
+            <div class="education-item">
+              <div class="education-year">2014 - 2015</div>
+              <div class="education-title">Hypokhâgne A/L · Classe Préparatoire Littéraire</div>
+              <div class="experience-description">Lycée Léon Blum, Créteil · Option études cinématographiques</div>
+            </div>
+            <div class="education-item">
+              <div class="education-year">2014</div>
+              <div class="education-title">Baccalauréat Économique et Social</div>
+              <div class="experience-description">Lycée Chateaubriand, Rennes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== CONTACT ====== -->
+      <div class="section" id="contact">
+        <h2 class="section-title">Me Contacter</h2>
+        <div class="cta-buttons">
+          <a href="mailto:mathisveillard@gmail.com" class="cta-button">✉️ Envoyer un email</a>
+          <a href="https://www.linkedin.com/in/mathis-veillard-05242b122/" target="_blank" class="cta-button">💼 LinkedIn</a>
+          <a href="#" onclick="window.print(); return false;" class="cta-button secondary">📄 Télécharger le CV (PDF)</a>
+        </div>
+        <div style="height:20px"></div>
+        <form class="contact-form" id="contact-form">
+          <div class="contact-row">
+            <div>
+              <label for="name">Nom</label>
+              <input id="name" name="name" type="text" placeholder="Votre nom" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="votre@email.com" required />
+            </div>
+          </div>
+          <div>
+            <label for="subject">Sujet</label>
+            <input id="subject" name="subject" type="text" placeholder="Objet du message" />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Bonjour Mathis, …" required></textarea>
+          </div>
+          <button type="submit" class="cta-button" style="border:none; cursor:pointer;">📨 Envoyer le message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Gestion des panneaux repliables (inchangé)
+    const buttons = document.querySelectorAll('.collapsible');
+    function openPanel(content, btn) {
+      content.classList.add('active'); btn.classList.add('active');
+      content.style.maxHeight = 'none'; void content.offsetHeight;
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+    function closePanel(content, btn) {
+      content.style.maxHeight = content.scrollHeight + 'px';
+      void content.offsetHeight; content.style.maxHeight = '0px';
+      const onEnd = () => { content.classList.remove('active'); btn.classList.remove('active'); content.removeEventListener('transitionend', onEnd); };
+      content.addEventListener('transitionend', onEnd);
+    }
+    buttons.forEach((btn) => {
+      const content = btn.nextElementSibling;
+      if (!content || !content.classList.contains('collapsible-content')) return;
+      btn.addEventListener('click', () => { const isOpen = content.classList.contains('active'); if (isOpen) closePanel(content, btn); else openPanel(content, btn); });
+    });
+    function recalcOpenPanels() {
+      document.querySelectorAll('.collapsible-content.active').forEach((c) => {
+        c.style.maxHeight = 'none'; void c.offsetHeight; c.style.maxHeight = c.scrollHeight + 'px';
+      });
+    }
+    if ('fonts' in document) { document.fonts.ready.then(recalcOpenPanels); }
+    window.addEventListener('resize', recalcOpenPanels);
+    window.addEventListener('load', recalcOpenPanels);
+    document.querySelectorAll('img').forEach((img) => { if (!img.complete) img.addEventListener('load', recalcOpenPanels); });
+
+    // ---------- Bascule Projets phares <-> Timeline complète ----------
+    const toggleExp = document.getElementById('toggle-full-experience');
+    const fullExp = document.getElementById('full-experience');
+    const toggleText = document.getElementById('toggle-text');
+    const toggleIcon = document.getElementById('toggle-icon');
+    const featured = document.getElementById('featured-projects');
+
+    if (toggleExp) {
+      toggleExp.addEventListener('click', (e) => {
+        e.preventDefault();
+        const closed = fullExp.style.display === 'none' || fullExp.style.display === '';
+        if (closed) {
+          fullExp.style.display = 'block';
+          if (featured) featured.style.display = 'none';
+          toggleText.textContent = 'Revenir aux projets phares';
+          toggleIcon.textContent = '▲';
+        } else {
+          fullExp.style.display = 'none';
+          if (featured) featured.style.display = 'grid';
+          toggleText.textContent = 'Voir tout le parcours professionnel';
+          toggleIcon.textContent = '▼';
+        }
+        recalcOpenPanels();
+        setTimeout(() => { toggleExp.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
+      });
+    }
+
+    // ---------- Bascule Formation résumé <-> complète ----------
+    const toggleEdu = document.getElementById('toggle-full-education');
+    const fullEdu = document.getElementById('full-education');
+    const toggleEduText = document.getElementById('toggle-edu-text');
+    const toggleEduIcon = document.getElementById('toggle-edu-icon');
+    const eduShort = document.getElementById('edu-short');
+
+    if (toggleEdu) {
+      toggleEdu.addEventListener('click', (e) => {
+        e.preventDefault();
+        const closed = fullEdu.style.display === 'none' || fullEdu.style.display === '';
+        if (closed) {
+          fullEdu.style.display = 'block';
+          if (eduShort) eduShort.style.display = 'none';
+          toggleEduText.textContent = 'Revenir au résumé';
+          toggleEduIcon.textContent = '▲';
+        } else {
+          fullEdu.style.display = 'none';
+          if (eduShort) eduShort.style.display = 'block';
+          toggleEduText.textContent = 'Voir tout le parcours académique';
+          toggleEduIcon.textContent = '▼';
+        }
+        recalcOpenPanels();
+        setTimeout(() => { toggleEdu.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
+      });
+    }
+
+    // ---------- OUVERTURE PAR DÉFAUT DES DEUX SECTIONS ----------
+    document.addEventListener('DOMContentLoaded', () => {
+      // === Effet "lettre par lettre" sur .name ===
+  (function () {
+    const nameEl = document.querySelector('.name');
+    if (!nameEl) return;
+    const text = nameEl.textContent.trim();
+    nameEl.textContent = ''; // vide
+    // recompose avec des spans
+    [...text].forEach((ch, idx) => {
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.style.setProperty('--i', idx);
+      span.textContent = ch;
+      nameEl.appendChild(span);
+    });
+    // Ajoute un shimmer une fois l'entrée terminée
+    const totalDelay = text.length * 60 + 800; // ms (stagger + marge)
+    setTimeout(() => nameEl.classList.add('shine'), totalDelay);
+  })();
+
+  // === Reveal au scroll (timeline, cards, sections titres) ===
+  (function () {
+    const toReveal = [
+      ...document.querySelectorAll('.timeline-item, .education-item, .featured-card, .section-title')
+    ];
+    toReveal.forEach(el => el.classList.add('reveal'));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    toReveal.forEach(el => io.observe(el));
+  })();
+
+      // Ouvrir "Parcours Professionnel"
+      const proBtn = document.querySelector('.main-content > .collapsible'); // le 1er dans main-content
+      const proContent = proBtn ? proBtn.nextElementSibling : null;
+      if (proBtn && proContent && !proContent.classList.contains('active')) {
+        openPanel(proContent, proBtn);
+      }
+
+
+      // Ouvrir "Formation"
+      const formationContent = document.getElementById('formation-content');
+      const formationBtn = formationContent ? formationContent.previousElementSibling : null;
+      if (formationBtn && formationContent && !formationContent.classList.contains('active')) {
+        openPanel(formationContent, formationBtn);
+      }
+      recalcOpenPanels();
+    });
+
+    // Formulaire : ouverture email pré-rempli (inchangé)
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const from = encodeURIComponent(document.getElementById('email').value.trim());
+      const subject = encodeURIComponent(document.getElementById('subject').value.trim() || 'Contact depuis le site');
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
+      const body = encodeURIComponent(`Nom: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(from)}\n\n${decodeURIComponent(message)}`);
+      window.location.href = `mailto:mathisveillard@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
